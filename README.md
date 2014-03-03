@@ -1,0 +1,4 @@
+condensing
+==========
+
+Server side condensing
