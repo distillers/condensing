@@ -1,18 +1,24 @@
 <div ng-include="'partials/navbar'"></div>
 
 <div class="jumbotron">
-  <h1>'Allo, 'Allo! Allo!</h1>
+  <h1>Jocky</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps, sir.
+    <img src="images/jocky.png" alt="I'm Jocky"><br>
+    Ah Nutmegged Pele.
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+  <input type="text" ng-model="searchTerm"/>
 </div>
 
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
+
+<div class="list-group">
+  <div class="list-group-item" ng-repeat="usage in usages | filter: searchTerm">
+    <h4 class="list-group-item-heading">Postcode: {{usage.postcode}} House: {{usage.house}}</h4>
+    <p class="list-group-item-text">
+        hour: {{usage.hour}}
+        electricity: {{usage.electricity}}
+        gas: {{usage.gas}}
+        water: {{usage.water}}
+    </p>
   </div>
 </div>
 
