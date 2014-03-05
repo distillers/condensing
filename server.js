@@ -26,7 +26,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
-// Populate empty DB with sample data
+// Populate empty DB with dummy usge data 
 require('./lib/config/dummydata');
 
 var app = express();
