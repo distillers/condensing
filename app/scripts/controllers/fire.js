@@ -5,6 +5,6 @@ angular.module('teastackApp')
     console.log(' --> Problems loading up');
     var probRef = new Firebase('https://shanky.firebaseio.com/');
     // Automatically sync everywhere in realtime
-    $scope.probs = $firebase(probRef);
+    $scope.problems = $firebase(probRef);
     console.log(' <-- Problems retrieved');
   });

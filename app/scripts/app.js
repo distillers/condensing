@@ -5,7 +5,8 @@ angular.module('teastackApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'firebase'
+  'firebase',
+  'components'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -16,6 +17,10 @@ angular.module('teastackApp', [
       .when('/fire', {
             templateUrl: 'partials/fire',
             controller: 'FireCtrl'
+        })
+        .when('/usages', {
+            templateUrl: 'partials/usages',
+            controller: 'UsagesCtrl'
         })
       .otherwise({
         redirectTo: '/'

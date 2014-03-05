@@ -5,6 +5,12 @@ angular.module('teastackApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },{
+       'title': 'Firebase',
+       'link': '/fire'
+    },{
+        'title': 'Usages',
+        'link': '/usages'
     }];
     
     $scope.isActive = function(route) {
