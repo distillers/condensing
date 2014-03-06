@@ -8,13 +8,55 @@
   </p>
 </div>
 
-<div class="row marketing">
-  <div ng-repeat="p in problems">
-      <h4>{{p.title}}</h4>
-      <p>{{p.description}}</p>
-  </div>
-</div>
+<div class="panel panel-default">
 
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <div class="panel-body">
+    <div class="panel-row">
+      <label for="columnSelect">Sort:</label>
+      <div>
+        <select id="columnSelect" ng-model="sortColumn">
+          <option ng-repeat="predicate in ['day', 'hour', 'electricity', 'gas', 'water']">
+            {{ predicate }}
+          </option>
+          <label for="reverseSort">Reverse</label>
+          <input id="reverseSort" type="checkbox" ng-model='reverse'/>Reverse
+        </select>
+      </div>
+    </div>
+    <p>sortColumn: {{ sortColumn }} reverse: {{ reverse }}</p>
+  </div>
+
+  <table class=table">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Hour</th>
+        <th>Electricity</th>
+        <th>Gas</th>
+        <th>Minute</th>
+        <th>Water</th>
+        <th>Reduction</th>
+      </tr>
+    </thead>
+    <!-- Custom filter that sorts an array of objects -->
+    <tr ng-repeat="cup in cuppas | orderBy : sortColumn : reverse">
+
+      <!-- The standard orderBy works with an array of objects -->
+      <!-- <tr ng-repeat="cup in test_cuppas_arr | orderBy: 'water'"> -->
+
+      <!-- This object is now quite big and hard to test with -->
+      <!-- <tr ng-repeat="cup in cuppas"> -->
+      <td>{{ cup.day }}</td>
+      <td>{{ cup.hour }}</td>
+      <td>{{ cup.electricity }}</td>
+      <td>{{ cup.gas }}</td>
+      <td>{{ cup.minute }}</td>
+      <td>{{ cup.water }}</td>
+      <td>{{ ((cup.water + cup.electricity + cup.gas + cup.water) / (1884 + 377 + 6.25)) | number:2 }}</td>
+    </tr>
+  </table>
+
+  <div class="panel-footer">
+    <p>♥ from the Yeoman team</p>
+  </div>
 </div>

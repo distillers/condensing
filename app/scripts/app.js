@@ -6,7 +6,8 @@ angular.module('teastackApp', [
   'ngSanitize',
   'ngRoute',
   'firebase',
-  'components'
+  'components',
+  'filters'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
